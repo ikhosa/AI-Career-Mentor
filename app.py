@@ -64,7 +64,7 @@ CUSTOM_CSS = """
         margin-bottom: 22px;
         box-shadow: 0 6px 18px rgba(10, 20, 40, 0.35);
     }
-    .amc-header h1 { margin: 0; font-size: 2rem; font-weight: 800; color: var(--gold) !important; }
+    .amc-header h1 { margin: 0; font-size: 2rem; font-weight: 800; color: #90EE90 !important; }
     .amc-header p { margin: 8px 0 0 0; font-size: 1rem; color: #F3F6FB !important; opacity: 1; }
     .amc-badge {
         display: inline-block; background: var(--gold);
@@ -134,9 +134,12 @@ CUSTOM_CSS = """
         font-size: 1.0rem; line-height: 1.65;
     }
     .amc-rank-badge {
-        display: inline-block; background: var(--navy); color: #FFFFFF !important;
+        display: inline-block; background: var(--navy);
         font-weight: 700; border-radius: 999px; padding: 5px 15px;
         font-size: 0.8rem; margin-bottom: 10px;
+    }
+    .amc-career-card .amc-rank-badge, .amc-career-card div.amc-rank-badge {
+        color: #FFFFFF !important;
     }
     .amc-score-pill {
         display: inline-block; background: var(--teal); color: #FFFFFF !important;
@@ -189,6 +192,22 @@ CUSTOM_CSS = """
 
     /* Text input label readability on the welcome screen */
     .stTextInput label p { color: var(--ink) !important; font-weight: 600; }
+
+    /* ---------------- BAR CHARTS ---------------- */
+    .amc-chart-wrap {
+        background: #FFFFFF !important;
+        border-radius: 12px;
+        padding: 10px;
+    }
+    [data-testid="stArrowVegaLiteChart"] svg,
+    [data-testid="stVegaLiteChart"] svg,
+    .amc-chart-wrap .vega-embed {
+        background-color: #FFFFFF !important;
+    }
+    [data-testid="stArrowVegaLiteChart"] text,
+    [data-testid="stVegaLiteChart"] text {
+        fill: #000000 !important;
+    }
 </style>
 """
 st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
@@ -415,7 +434,9 @@ def render_results_stage():
                 {"Category": [CATEGORY_LABELS.get(k, k) for k in interest_profile.keys()],
                  "Score": list(interest_profile.values())}
             ).sort_values("Score", ascending=False).set_index("Category")
+            st.markdown('<div class="amc-chart-wrap">', unsafe_allow_html=True)
             st.bar_chart(interest_df, height=320)
+            st.markdown('</div>', unsafe_allow_html=True)
         with c2:
             st.markdown("**Aptitude Profile**")
             domains = aptitude_profile["domains"]
@@ -423,7 +444,9 @@ def render_results_stage():
                 {"Domain": [DOMAIN_LABELS.get(k, k) for k in domains.keys()],
                  "Score": list(domains.values())}
             ).sort_values("Score", ascending=False).set_index("Domain")
+            st.markdown('<div class="amc-chart-wrap">', unsafe_allow_html=True)
             st.bar_chart(aptitude_df, height=320)
+            st.markdown('</div>', unsafe_allow_html=True)
             st.metric("Overall Aptitude Score", f"{aptitude_profile['overall']}%",
                        help=f"{aptitude_profile['correct_count']}/{aptitude_profile['total_count']} correct")
 
