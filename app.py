@@ -64,7 +64,7 @@ CUSTOM_CSS = """
         margin-bottom: 22px;
         box-shadow: 0 6px 18px rgba(10, 20, 40, 0.35);
     }
-    .amc-header h1 { margin: 0; font-size: 2rem; font-weight: 800; color: #FFFFFF !important; }
+    .amc-header h1 { margin: 0; font-size: 2rem; font-weight: 800; color: var(--gold) !important; }
     .amc-header p { margin: 8px 0 0 0; font-size: 1rem; color: #F3F6FB !important; opacity: 1; }
     .amc-badge {
         display: inline-block; background: var(--gold);
@@ -160,24 +160,25 @@ CUSTOM_CSS = """
 
     /* ---------------- BUTTONS ---------------- */
     .stButton > button[kind="primary"] {
-        background: var(--navy) !important;
-        color: #FFFFFF !important;
+        background: #87CEEB !important;
+        color: #000000 !important;
         border: none !important;
         font-weight: 700 !important;
         border-radius: 10px !important;
         padding: 0.6rem 1.4rem !important;
     }
     .stButton > button[kind="primary"]:hover {
-        background: var(--navy-soft) !important;
-        color: #FFFFFF !important;
+        background: #6EC1E4 !important;
+        color: #000000 !important;
     }
     .stButton > button[kind="primary"]:disabled {
-        background: #A9B4C8 !important;
-        color: #F0F2F6 !important;
+        background: #C7E7F5 !important;
+        color: #4A4A4A !important;
     }
     .stButton > button:not([kind="primary"]) {
-        color: var(--navy) !important;
-        border: 1.5px solid var(--navy) !important;
+        background: #87CEEB !important;
+        color: #000000 !important;
+        border: 1.5px solid #87CEEB !important;
         border-radius: 10px !important;
         font-weight: 600 !important;
     }
