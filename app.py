@@ -64,7 +64,7 @@ CUSTOM_CSS = """
         margin-bottom: 22px;
         box-shadow: 0 6px 18px rgba(10, 20, 40, 0.35);
     }
-    .amc-header h1 { margin: 0; font-size: 2rem; font-weight: 800; color: ##FFD700 !important; }
+    .amc-header h1 { margin: 0; font-size: 2rem; font-weight: 800; color: #FFD700 !important; }
     .amc-header p { margin: 8px 0 0 0; font-size: 1rem; color: #F3F6FB !important; opacity: 1; }
     .amc-badge {
         display: inline-block; background: var(--gold);
@@ -192,6 +192,16 @@ CUSTOM_CSS = """
 
     /* Text input label readability on the welcome screen */
     .stTextInput label p { color: var(--ink) !important; font-weight: 600; }
+    .stTextInput input {
+        background-color: #FFFFFF !important;
+        color: var(--ink) !important;
+        border: 1.5px solid #DCE3F0 !important;
+        border-radius: 8px !important;
+    }
+    .stTextInput input::placeholder {
+        color: #8B95A8 !important;
+        opacity: 1 !important;
+    }
 
     /* ---------------- BAR CHARTS ---------------- */
     .amc-chart-wrap {
@@ -224,7 +234,7 @@ def render_header(subtitle):
     st.markdown(
         f"""
         <div class="amc-header">
-            <h1>🧭 AI Career Mentor</h1>
+            <h1 style="color:#FFD700 !important;">🧭 AI Career Mentor</h1>
             <p>{subtitle}</p>
             <span class="amc-badge">PAKISTAN CAREER GUIDANCE PLATFORM</span>
         </div>
