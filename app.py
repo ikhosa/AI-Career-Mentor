@@ -64,7 +64,7 @@ CUSTOM_CSS = """
         margin-bottom: 22px;
         box-shadow: 0 6px 18px rgba(10, 20, 40, 0.35);
     }
-    .amc-header h1 { margin: 0; font-size: 2rem; font-weight: 800; color: #FFD700 !important; }
+    .amc-header .amc-title { margin: 0; font-size: 2rem; font-weight: 800; color: #FFD700 !important; }
     .amc-header p { margin: 8px 0 0 0; font-size: 1rem; color: #F3F6FB !important; opacity: 1; }
     .amc-badge {
         display: inline-block; background: var(--gold);
@@ -234,7 +234,7 @@ def render_header(subtitle):
     st.markdown(
         f"""
         <div class="amc-header">
-            <h1 style="color:#FFD700 !important;">🧭 AI Career Mentor</h1>
+            <div class="amc-title" style="color:#FFD700 !important;">🧭 AI Career Mentor</div>
             <p>{subtitle}</p>
             <span class="amc-badge">PAKISTAN CAREER GUIDANCE PLATFORM</span>
         </div>
